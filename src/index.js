@@ -57,35 +57,44 @@ function App() {
   );
 }
 
-const Pizza = function () {
+const Pizza = function (props) {
+  console.log(props);
   return (
-    <div>
-      <h2>Pizza</h2>
-      <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
-      <img src="pizzas/funghi.jpg" alt="Pissa" />
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
     </div>
   );
 };
 
 const Header = function () {
+  const style = {};
   return (
-    <header>
-      <h1
-        className="header"
-        style={{ color: "red", fontSize: "48px", textTransform: "uppercase" }}
-      >
-        Fast React Pizza Co.
-      </h1>
+    <header className="header">
+      <h1 style={{ style }}>Fast React Pizza Co.</h1>
     </header>
   );
 };
 
 const Menu = function () {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-    </div>
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        photoName="pizzas/spinaci.jpg"
+        price="10"
+      />
+
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        photoName="pizzas/funghi.jpg"
+        price="10"
+      />
+    </main>
   );
 };
 
