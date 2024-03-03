@@ -58,15 +58,15 @@ function App() {
 }
 
 //child componet of menu componenent
-const Pizza = function (props) {
-  if (props.pizzaObj.soldOut) return null;
+const Pizza = function ({ pizzaObj }) {
+  if (pizzaObj.soldOut) return null;
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{Number(props.pizzaObj.price) + 3}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{Number(pizzaObj.price) + 3}</span>
       </div>
     </li>
   );
@@ -124,12 +124,12 @@ const Footer = function () {
   );
 };
 
-const Order = (props) => {
-  console.log(props);
+const Order = ({ closeHour, openHours }) => {
   return (
     <div className="order">
       <p>
-        We're open until {props.closeHour}:00. Come visit us or order online{" "}
+        We're open from {openHours}:00 to {closeHour}:00. Come visit us or order
+        online{" "}
       </p>
       <button className="btn"> Order</button>
     </div>
