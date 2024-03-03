@@ -79,6 +79,11 @@ body {
   align-items: center;
   gap: 4rem;
 }
+.test {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
 
 .menu h2 {
   display: inline-block;

@@ -61,11 +61,11 @@ const Pizza = function (props) {
   console.log(props);
   return (
     <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{Number(props.price) + 3}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{Number(props.pizzaObj.price) + 3}</span>
       </div>
     </div>
   );
@@ -84,19 +84,11 @@ const Menu = function () {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
-        photoName="pizzas/spinaci.jpg"
-        price="10"
-      />
-
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
-        photoName="pizzas/funghi.jpg"
-        price="12"
-      />
+      <div className="test">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} />
+        ))}
+      </div>
     </main>
   );
 };
@@ -108,12 +100,6 @@ const Footer = function () {
   const closeHour = 22;
   const isOpen = hours >= openHours && hours <= closeHour;
   console.log(isOpen);
-
-  //   if (hours >= openHours && hours <= closeHour) {
-  //     alert("We're currently open");
-  //   } else {
-  //     alert("Sorry We're closed");
-  //   }
 
   return (
     <footer> {new Date().toLocaleTimeString()} We're currently open !</footer>
