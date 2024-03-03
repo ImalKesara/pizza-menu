@@ -60,14 +60,14 @@ function App() {
 const Pizza = function (props) {
   console.log(props);
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
         <h3>{props.pizzaObj.name}</h3>
         <p>{props.pizzaObj.ingredients}</p>
         <span>{Number(props.pizzaObj.price) + 3}</span>
       </div>
-    </div>
+    </li>
   );
 };
 
@@ -84,11 +84,11 @@ const Menu = function () {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <div className="test">
+      <ul className="pizzas">
         {pizzaData.map((pizza) => (
           <Pizza pizzaObj={pizza} />
         ))}
-      </div>
+      </ul>
     </main>
   );
 };
