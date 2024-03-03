@@ -59,14 +59,14 @@ function App() {
 
 //child componet of menu componenent
 const Pizza = function ({ pizzaObj }) {
-  if (pizzaObj.soldOut) return null;
+  // if (pizzaObj.soldOut) return null;
   return (
     <li className="pizza">
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{Number(pizzaObj.price) + 3}</span>
+        <span>{pizzaObj.soldOut ? "Sold out" : Number(pizzaObj.price)}</span>
       </div>
     </li>
   );
@@ -89,12 +89,20 @@ const Menu = function () {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
+
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic italian cuisine. 6 creative dishes to choose from.All from
+            our stone oven, all organic,all delicious
+          </p>
+
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p> We're still working on our menu. Please come back later :</p>
       )}
