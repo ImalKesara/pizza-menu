@@ -64,7 +64,7 @@ const Pizza = function ({ pizzaObj }) {
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3 className="text-red-300">{pizzaObj.name}</h3>
+        <h3 className="text-sky-500">{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
 
         {pizzaObj.soldOut ? (
@@ -82,7 +82,7 @@ const Pizza = function ({ pizzaObj }) {
 const Header = function () {
   const style = {};
   return (
-    <header className="header">
+    <header className="header ">
       <h1 style={{ style }}>Fast React Pizza Co.</h1>
     </header>
   );
@@ -146,7 +146,7 @@ const Order = ({ closeHour, openHours }) => {
         We're open from {openHours}:00 to {closeHour}:00. Come visit us or order
         online{" "}
       </p>
-      <button className="btn"> Order</button>
+      <button className="btn rounded-md"> Order</button>
     </div>
   );
 };
