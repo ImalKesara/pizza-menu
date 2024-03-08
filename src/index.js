@@ -64,7 +64,7 @@ const Pizza = function ({ pizzaObj }) {
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{pizzaObj.name}</h3>
+        <h3 className="text-red-300">{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
 
         {pizzaObj.soldOut ? (
